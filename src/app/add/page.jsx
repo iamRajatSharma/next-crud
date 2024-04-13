@@ -27,8 +27,9 @@ function page() {
     }
 
     return (
-        <div>
-            <div className='mt-5' style={{ padding: "0px 500px", marginBottom: "25px" }}>
+        <div className='row'>
+            <div className='mt-5 col-lg-4'></div>
+            <div className='mt-5 col-lg-4 col-md-12' style={{ marginBottom: "25px" }}>
                 <div className='card' >
                     <div className='card-header'>
                         <strong>Add New Todo</strong>
@@ -55,6 +56,7 @@ function page() {
                     </div>
                 </div>
             </div>
+            <div className='mt-5 col-lg-4'></div>
         </div>
     )
 }
