@@ -11,7 +11,7 @@ export default function Home() {
     const router = useRouter();
 
     const UserList = async () => {
-        const response = await fetch("http://localhost:3000/api/todos");
+        const response = await fetch("https://nextapp-beta-weld.vercel.app/api/todos");
         const data = await response.json()
         setResult(data.data)
     }
@@ -22,7 +22,7 @@ export default function Home() {
 
 
     const deletehandler = async (id) => {
-        await fetch(`http://localhost:3000/api/todos/${id}`, {
+        await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`, {
             method: "DELETE"
         })
             .then((resp) => {

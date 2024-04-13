@@ -12,7 +12,7 @@ function page() {
     const router = useRouter();
 
     async function submitHandler() {
-        await fetch("http://localhost:3000/api/todos", {
+        await fetch("https://nextapp-beta-weld.vercel.app/api/todos", {
             method: "POST",
             body: JSON.stringify({ title, description, status })
         })
