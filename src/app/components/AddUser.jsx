@@ -12,7 +12,6 @@ function AddUser({ id }) {
             })
             .then((resp) => {
                 setTodo(resp.data.title)
-                // console.log(todo.title)
             })
     }, [])
 

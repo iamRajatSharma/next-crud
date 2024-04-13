@@ -6,6 +6,6 @@ const Database = await mongoose.connect("mongodb+srv://rajat:12345@cluster0.6wrj
         console.log('Connected');
     })
     .catch((error) => {
-        console.log('Error' + error);
+        console.log('Error');
     })
 export default Database;

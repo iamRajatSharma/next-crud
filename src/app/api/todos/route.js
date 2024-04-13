@@ -23,7 +23,6 @@ export async function POST(req, res) {
         }
 
         const result = await data.save();
-        console.log(result)
         return NextResponse.json({ result })
     }
     catch {

@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
 
-    console.log(process.env)
     const [result, setResult] = useState([]);
     const [edit, setEdit] = useState('Edit');
     const [deleteBtn, setDelete] = useState('Delete')
