@@ -14,7 +14,7 @@ function page({ params }) {
 
     useEffect(() => {
         const loadTodo = async () => {
-            await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`)
+                await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`)
                 .then((resp) => {
                     return resp.json();
                 })
@@ -28,7 +28,7 @@ function page({ params }) {
     }, [])
 
     const submithandler = async () => {
-        await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`, {
+            await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`, {
             method: "PUT",
             body: JSON.stringify({ title, description, status })
         })

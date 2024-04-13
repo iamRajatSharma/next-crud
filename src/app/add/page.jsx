@@ -8,10 +8,12 @@ function page() {
     const [title, setTitle] = useState('')
     const [description, setDesc] = useState('')
     const [status, setStatus] = useState('complete')
-
+    const [btn, setButton] = useState('Add')
     const router = useRouter();
 
     async function submitHandler() {
+        setButton("Adding....")
+
         await fetch("https://nextapp-beta-weld.vercel.app/api/todos", {
             method: "POST",
             body: JSON.stringify({ title, description, status })
@@ -47,7 +49,9 @@ function page() {
                                 <option value="In-Complete">In-Complete</option>
                             </select>
                         </div>
-                        <button type="submit" className="btn btn-primary" onClick={submitHandler}>Submit</button>
+                        <div className='text-center'>
+                            <button type="submit" className="btn btn-primary" onClick={submitHandler}>{btn}</button>
+                        </div>
                     </div>
                 </div>
             </div>

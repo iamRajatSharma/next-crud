@@ -6,7 +6,10 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
 
+    console.log(process.env)
     const [result, setResult] = useState([]);
+    const [edit, setEdit] = useState('Edit');
+    const [deleteBtn, setDelete] = useState('Delete')
 
     const router = useRouter();
 
@@ -22,7 +25,7 @@ export default function Home() {
 
 
     const deletehandler = async (id) => {
-        await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`, {
+            await fetch(`https://nextapp-beta-weld.vercel.app/api/todos/${id}`, {
             method: "DELETE"
         })
             .then((resp) => {
@@ -63,8 +66,8 @@ export default function Home() {
                                             }
                                         </td>
                                         <td>
-                                            <Link href={`/edit/${item._id}`} className='btn btn-success mr-2'>Edit</Link>
-                                            <button onClick={() => { deletehandler(item._id) }} className='btn btn-danger'>Delete</button>
+                                            <Link href={`/edit/${item._id}`} className='btn btn-success mr-2'>{edit}</Link>
+                                            <button onClick={() => { deletehandler(item._id) }} className='btn btn-danger'>{deleteBtn}</button>
                                         </td>
                                     </tr>
                                 ))
