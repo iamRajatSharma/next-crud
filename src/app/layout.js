@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
                 <HomeHeading />
                 <div className="pt-5 text-center">
                     <Link href={"/"} className="btn btn-dark text-white mr-2">Back to Home</Link>
-                    <Link href={"/add"} className="btn btn-dark text-white">Add User Button</Link>
+                    <Link href={"/add"} className="btn btn-dark text-white">Add New User</Link>
                 </div>
                 {children}
             </body>

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Database from "@/lib/Database";
 import Todo from "@/models/Todo";
-var FormData = require('form-data');
+import TodoValidator from "@/validator/Todo"
 
 export async function GET() {
     await Database;
@@ -11,22 +11,22 @@ export async function GET() {
 
 
 export async function POST(req, res) {
-    await Database;
-    // const body = await req.body
-    // var form = new FormData();
+    try {
+        await Database;
+        const body = await req.json()
+        const data = new Todo(body);
 
-    // console.log(form)
-    // const data = await Todo.find({})
-    return NextResponse.json({ msg: "body" })
-}
+        const validate = await TodoValidator.safeParse(data)
 
+        if (validate.success == false) {
+            return NextResponse.json(validate.error)
+        }
 
-export async function DELETE(req, res) {
-    await Database;
-    // const body = await req.body
-    // var form = new FormData();
-
-    // console.log(form)
-    // const data = await Todo.find({})
-    return NextResponse.json({ msg: "body" })
+        const result = await data.save();
+        console.log(result)
+        return NextResponse.json({ result })
+    }
+    catch {
+        return NextResponse.json({ message: "Internal Server Error" })
+    }
 }

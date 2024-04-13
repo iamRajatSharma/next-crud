@@ -1,22 +1,20 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 
-
 function AddUser({ id }) {
 
     const [todo, setTodo] = useState()
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/api/todos/${id}`)
+    useEffect(async () => {
+        await fetch(`http://localhost:3000/api/todos/${id}`)
             .then((resp) => {
                 return resp.json()
             })
             .then((resp) => {
-                setTodo(resp.data)
+                setTodo(resp.data.title)
+                // console.log(todo.title)
             })
     }, [])
-
-    console.log("TODO : " + todo)
 
     return (
         <div className='mt-5' style={{ padding: "0px 500px" }}>
@@ -28,11 +26,11 @@ function AddUser({ id }) {
                     <form action="/action_page.php">
                         <div className="mb-3 mt-3">
                             <label htmlFor="email" className="form-label">Title:</label>
-                            <input type="email" className="form-control" id="email" placeholder="Enter title" name="email" value={todo.title} />
+                            <input type="email" className="form-control" id="email" placeholder="Enter title" name="email"  />
                         </div>
                         <div className="mb-3">
                             <label htmlFor="pwd" className="form-label">Description:</label>
-                            <textarea name="" id="" className="form-control" cols="30" rows="3" placeholder='Enter Description' value={todo.description}></textarea>
+                            <textarea name="" id="" className="form-control" cols="30" rows="3" placeholder='Enter Description' ></textarea>
                         </div>
                         <div className="mb-3">
                             <label htmlFor="pwd" className="form-label">Select Status:</label> <br />
